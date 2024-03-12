@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<center>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vücut Kitle İndeksi Hesaplama</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 >Vücut Kitle İndeksi Hesaplama</h1>
+        
+        <label  for="boy">Boy (cm):</label>
+        <input type="number" id="boy">
+        
+        <label  for="kilo">Kilo (kg):</label>
+        <input  type="number" id="kilo">
+        
+        <button  onclick="hesapla()">Hesapla</button>
+       
+        <p id="sonuc"></p>
+    </div>
+    <style type="text/css">
+    	/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  width: 350px;
+}
+
+h1 {
+  text-align: center;
+  color: #4a90e2;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+label,
+input,
+button {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #357ab7;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%; /* Genişliği ekranın yüzde 90'ı yapar */
+    padding: 15px; /* İç doldurmayı azaltır */
+  }
+
+  label,
+  input,
+  button {
+    width: 100%; /* Genişliği tam yapar */
+  }
+}
+    	#arka
+    	{
+    		color: white;
+    	}
+
+body
+{
+	 border: 5px solid black;
+	background-color: darkred;
+ 
+}
+</style>
+<script>function hesapla() {
+    let boy = document.getElementById("boy").value;
+    let kilo = document.getElementById("kilo").value;
+ 
+    let vki = kilo / ((boy/100) * (boy/100));
+    vki = vki.toFixed(2); 
+ 
+    let sonucMetni = "Vücut Kitle İndeksiniz: " + vki + ". Durumunuz: ";
+    let sonucElementi = document.getElementById("sonuc");
+
+    
+    if (vki < 18.5) {
+        sonucMetni += "cibik kiraker";
+        sonucElementi.style.color = "blue";
+    } else if (vki < 24.9) {
+        sonucMetni += "Normal";
+        sonucElementi.style.color = "green";
+    } else if (vki < 29.9) {
+        sonucMetni += "Fazla Kilolu";
+        sonucElementi.style.color = "orange";
+
+    } else {
+        sonucMetni += "JR. Jahrein";
+        sonucElementi.style.color = "red";
+    }
+ 
+    sonucElementi.innerHTML = sonucMetni;
+}</script>
+</center>
+</body>
+</html>
